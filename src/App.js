@@ -3,6 +3,7 @@ import "./styles/styles.scss";
 import Curso from "./Curso"
 import Banner from "./Banner"
 import Formulario from "./Formulario"
+import { BrowserRouter as Router, Route, Switch} from "react-router-dom"
 
 const cursos = [
     {
@@ -20,23 +21,21 @@ const cursos = [
 ]
 
 const App = () => (
-    <Fragment>
-        <Banner />
 
-        {/* Grid de cursos */}
-        <div className="ed-grid m-grid-3">
-            {/* Para un card con valores por default */}
-            <Curso />
-
-            {/* Recorrer un array, utilizamos la estructura de spark */}
-            {
-                cursos.map( c => <Curso title={c.title} image={c.image} price={c.price} teacher={c.teacher} /> )
-            }
-
-        </div>
-
-        <Formulario />
-    </Fragment>
+    <Router>
+        <Switch>
+            <Route path="/" exact component={ Banner } />
+            <Route path="/course" component={ Curso } />
+            <Route path="/course/:id" component={ Course} />
+            <Route path="/form" component={ () => <Formulario/> } />
+            <Route component={() => (
+                <div className="ed-grid">
+                    <h1>Error 404</h1>
+                    <span>Página no encontrada</span>
+                </div>
+            )} />
+        </Switch>
+    </Router>
 )
 
 export default App;
