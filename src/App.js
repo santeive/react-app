@@ -1,6 +1,7 @@
 import React, {Fragment} from 'react'
 import "./styles/styles.scss";
 import Curso from "./Curso"
+import Course from "./Course"
 import Banner from "./Banner"
 import Formulario from "./Formulario"
 import { BrowserRouter as Router, Route, Switch} from "react-router-dom"
@@ -25,8 +26,8 @@ const App = () => (
     <Router>
         <Switch>
             <Route path="/" exact component={ Banner } />
+            <Route path="/course/:id" component={ Course } />
             <Route path="/course" component={ Curso } />
-            <Route path="/course/:id" component={ Course} />
             <Route path="/form" component={ () => <Formulario/> } />
             <Route component={() => (
                 <div className="ed-grid">
