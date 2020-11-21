@@ -1,22 +1,24 @@
 import React, {Fragment} from 'react'
-import "./styles/styles.scss";
-import Banner from "./Banner"
-import Formulario from "./Formulario"
+import "../styles/styles.scss"
+import Formulario from "./Pages/Formulario"
 import { BrowserRouter as Router, Route, Switch} from "react-router-dom"
-import CourseGrid from './CourseGrid';
-import Course from "./Course"
-import MainMenu from "./MainMenu"
-import Historial from './Historial';
+import CourseGrid from './Organisms/CourseGrid';
+import Course from "./Pages/Course"
+import MainMenu from "./Organisms/MainMenu"
+import Historial from './Pages/Historial';
+import Home from './Pages/Home';
+import Users from './Pages/Users';
 
 const App = () => (
     <Router>
         <MainMenu />
         <Switch>
-            <Route path="/" exact component={ Banner } />
+            <Route path="/" exact component={ Home } />
             <Route path="/courses/:id" component={ Course } />
             <Route path="/courses" component={ CourseGrid } />
             <Route path="/historial/:valor" component={ Historial } />
             <Route path="/historial" component={ Historial } />
+            <Route path="/users" component={ Users } />
 
             <Route path="/form" component={ () => <Formulario name="Página de contacto"/> } />
             
@@ -46,3 +48,5 @@ export default App;
 
 //Importar en un envolvente todas las rutas de la app
 //Las rutas que tienen parametros se ponen al inicio
+
+//Nomenclatura clara JSX

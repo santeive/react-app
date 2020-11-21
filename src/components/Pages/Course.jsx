@@ -1,5 +1,4 @@
 import React from "react"
-import Curso from "./Curso"
 
 const cursos = [
     {
@@ -43,7 +42,6 @@ const Course = ({match}) => {
 
     //Accedo a los parametros de la url a través de la propiedad match
     const CursoActual = cursos.filter(c => c.id === parseInt(match.params.id))[0]
-
 
     return (
         CursoActual ? (

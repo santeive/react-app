@@ -2,7 +2,7 @@ import React from "react"
 import PropTypes from 'prop-types'
 import {Link} from "react-router-dom"
 
-const Curso = ({id, title, image, price, teacher}) => (
+const CourseCard = ({id, title, image, price, teacher}) => (
 
         <article className="card">
             <div className="img-container s-ratio-16-9 s-radius-tr s-radius-tl">
@@ -40,11 +40,11 @@ const Curso = ({id, title, image, price, teacher}) => (
 }*/
 
 // Valores por defecto
-Curso.defaultProps = {
+CourseCard.defaultProps = {
     title: "Comming soon",
     image: "https://s.hdnux.com/photos/01/07/34/20/18727976/11/rawImage.jpg",
     price: "In USD",
     teacher: "Boss"
 }
 
-export default Curso
+export default CourseCard
