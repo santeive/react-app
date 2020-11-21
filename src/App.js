@@ -1,40 +1,32 @@
 import React, {Fragment} from 'react'
 import "./styles/styles.scss";
-import Curso from "./Curso"
-import Course from "./Course"
 import Banner from "./Banner"
 import Formulario from "./Formulario"
 import { BrowserRouter as Router, Route, Switch} from "react-router-dom"
-
-const cursos = [
-    {
-        "title": "React desde cero",
-        "image": "https://cdn.vox-cdn.com/thumbor/RVhobHgNC4xy7NSqXvVs13OdJIk=/0x0:4000x4000/1200x800/filters:focal(1680x1680:2320x2320)/cdn.vox-cdn.com/uploads/chorus_image/image/55649931/IM_Photo5.0.jpg",
-        "price": "30",
-        "teacher": "Francisco Garcia"
-    },
-    {
-        "title": "Django desde cero",
-        "image": "https://cdn.vox-cdn.com/thumbor/RVhobHgNC4xy7NSqXvVs13OdJIk=/0x0:4000x4000/1200x800/filters:focal(1680x1680:2320x2320)/cdn.vox-cdn.com/uploads/chorus_image/image/55649931/IM_Photo5.0.jpg",
-        "price": "300",
-        "teacher": "Carlos Garcia"
-    }
-]
+import CourseGrid from './CourseGrid';
+import Course from "./Course"
+import MainMenu from "./MainMenu"
+import Historial from './Historial';
 
 const App = () => (
-
     <Router>
+        <MainMenu />
         <Switch>
             <Route path="/" exact component={ Banner } />
-            <Route path="/course/:id" component={ Course } />
-            <Route path="/course" component={ Curso } />
-            <Route path="/form" component={ () => <Formulario/> } />
+            <Route path="/courses/:id" component={ Course } />
+            <Route path="/courses" component={ CourseGrid } />
+            <Route path="/historial/:valor" component={ Historial } />
+            <Route path="/historial" component={ Historial } />
+
+            <Route path="/form" component={ () => <Formulario name="Página de contacto"/> } />
+            
             <Route component={() => (
                 <div className="ed-grid">
                     <h1>Error 404</h1>
                     <span>Página no encontrada</span>
                 </div>
             )} />
+        
         </Switch>
     </Router>
 )
@@ -51,3 +43,6 @@ export default App;
 // 6.- class => className ----> class reservada para clases
 // 7.- for => htmlFor
 // 8.- No se puede usar if, else, while
+
+//Importar en un envolvente todas las rutas de la app
+//Las rutas que tienen parametros se ponen al inicio

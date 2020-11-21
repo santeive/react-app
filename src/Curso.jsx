@@ -1,26 +1,18 @@
 import React from "react"
 import PropTypes from 'prop-types'
+import {Link} from "react-router-dom"
 
-const persona = {"nombre": "Francisco", "apellido":"Garcia", "edad":26}
-const mayorDeEdad = edad => edad > 18
-const curso = {
-    "nombre": "React desde cero",
-    "image": "https://edteam-media.s3.amazonaws.com/courses/medium/0b4e6141-c9cd-4e05-bb59-55b4b9e67a14.png",
-    "precio": "50 USD"
-}
+const Curso = ({id, title, image, price, teacher}) => (
 
-const Curso = ({title, image, price, teacher}) => (
-
-    <div className="ed-grid m-grid-4">
         <article className="card">
             <div className="img-container s-ratio-16-9 s-radius-tr s-radius-tl">
-                <img src= {image} alt="thumb"/>
+                <Link to={`/courses/${id}`}>
+                    <img src= {image} alt={title}/>
+                </Link>
             </div>
 
             <div className="card__data s-border s-radius-br s-radius-bl s-pxy-2">
-                <h3 className="t5 s-mb-2 s-center">
-                    {title} 
-                </h3>
+                <h3 className="t5 s-mb-2 s-center"> {title} </h3>
                 <div className="s-mb-2 s-main-center">
                     <div className="card__teacher s-cross-center">
                         <div className="card__avatar s-mr-1">
@@ -36,16 +28,16 @@ const Curso = ({title, image, price, teacher}) => (
                 </div>
             </div>
         </article>
-    </div>
 )
 
 
-Curso.propTypes = {
+/*Curso.propTypes = {
+    id: PropTypes.In
     title: PropTypes.string,
     image: PropTypes.string,
     price: PropTypes.string,
     teacher: PropTypes.string
-}
+}*/
 
 // Valores por defecto
 Curso.defaultProps = {
